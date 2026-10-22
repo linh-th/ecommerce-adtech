@@ -8,9 +8,9 @@
 
 ## 1. Business Context & Problem Statement
 
-- **Business Context:** Nhà bán hàng (Sellers/Brands) vận hành các chiến dịch quảng cáo trên nền tảng Thương mại điện tử cần theo dõi chỉ số hiệu quả định kỳ.
-- **Problem:** Việc đăng nhập và xuất báo cáo thủ công mỗi ngày mất thời gian và dễ bỏ sót dữ liệu quan trọng.
-- **Solution:** Thiết kế tính năng cho phép đặt lịch gửi báo cáo hiệu quả quảng cáo (Spend, Revenue, ROAS/ACoS) tự động định kỳ qua Email.
+- **Business Context:** E-commerce sellers (Sellers/Brands) running advertising campaigns on E-commerce platforms need to monitor performance metrics periodically.
+- **Problem:** Logging in and exporting reports manually every day is time-consuming and easy to miss important data.
+- **Solution:** Design a feature that allows scheduling automated, periodic email delivery of ad performance reports (Spend, Revenue, ROAS/ACoS).
 
 
 ## 2. Requirement Documentation (User Story & Acceptance Criteria)
@@ -23,22 +23,22 @@
 
 ### Acceptance Criteria (AC)
 
-- **AC 1 (Schedule Config):** Cấu hình tần suất gửi `Daily` (08:00 AM hàng ngày) hoặc `Weekly` (Thứ 2 hàng tuần).
-- **AC 2 (Report Format):** File đính kèm định dạng `.CSV` hoặc `.PDF` gồm các trường: Campaign Name, Impressions, Clicks, Spend, Revenue, ACoS/ROAS.
-- **AC 3 (Recipients):** Cho phép cấu hình tối đa 3 Email nhận báo cáo.
-- **AC 4 (Validation):** Báo lỗi dạng text đỏ `"Invalid email format"` nếu nhập sai định dạng Email.
+- **AC 1 (Schedule Config):** Configure sending frequency: `Daily` (08:00 AM daily) or `Weekly` (Every Monday).
+- **AC 2 (Report Format):** Attached file format `.CSV` or `.PDF` including fields: Campaign Name, Impressions, Clicks, Spend, Revenue, ACoS/ROAS.
+- **AC 3 (Recipients):** Allow configuring a maximum of 3 recipient Emails.
+- **AC 4 (Validation):** Display red error text `"Invalid email format"` if an incorrect Email format is entered.
 
 
 ## 3. Flow Diagrams
 
-### User Flow (Mô hình hóa Luồng Thao tác & Xử lý Lỗi Giao diện)
+### User Flow (Interaction Flow & UI Error Handling Modeling)
 
-User Flow thể hiện rõ luồng chính (Happy Path), luồng hủy (Cancel Path) và luồng kiểm tra dữ liệu lỗi (Validation Flow) khép kín.
+User Flow clearly represents the main flow (Happy Path), cancellation flow (Cancel Path), and closed-loop validation flow (Validation Flow).
 
 ![User Flow](./user-flow.drawio.svg)
 
-### Business Flow (Mô hình hóa Luồng Nghiệp vụ Hệ thống & Tự động hóa)
+### Business Flow (System Business Flow & Automation Modeling)
 
-Business Flow thể hiện cách dữ liệu luân chuyển ở Backend, cơ chế Cronjob trigger 08:00 AM định kỳ, gọi API E-commerce Ads và tự động gửi Email báo cáo.
+Business Flow represents how data flows in the Backend, the periodic 08:00 AM Cronjob trigger mechanism, calling E-commerce Ads APIs, and automatically sending report Emails.
 
 ![Business Flow](./business-flow.svg)
